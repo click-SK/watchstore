@@ -4,58 +4,115 @@ class Header{
       
     }
 
+    // let categ = [];
+// console.log(goods);
+// goods.forEach((el) =>{
+//     console.log(el.name)
+//     if (!categ.includes(el.name)){
+//         categ.push(el.name);
+//     } return categ;
+    
+
+    // hendlerClickFilter(){
+    //   let result = [];
+    //   CATALOG.forEach((el) =>{ 
+    //     if (!result.includes(el.categories)){
+    //         result.push(el.categories);
+    //     } return result;
+    //   });
+    //   console.log(result);
+
+    //   result.forEach((name) => {
+    //     console.log(name);
+    //   })
+    // }
+
     render(count) {
 
       // 
         let htmlHeader = '';
         let htmlSearchCategories = '';
         let htmlNavbar = '';
-        // 
+        let result = [];
+        CATALOG.forEach((el) =>{ 
+          if (!result.includes(el.categories)){
+              result.push(el.categories);
+          } return result;
+        });
 
-        CATALOG.forEach((el) =>{
-          let categ = el.categories;
 
+        let htmlSearchCat = ``;
+        
+
+
+        result.forEach((name) => {
+          
+          
+          htmlSearchCat += `
+          <li class="header__search-categories--list-item" data-f="Men's Watch">${name}</li>
+          `
+          htmlSearchCategories +=`
+          <li class="header__item-nav--categories-item">
+                <a href="#" data-f="Men's Watch" >${name}</a>
+                <div class="header__item-nav--categories-block">
+                  <div class="categories-block--item">
+                    <ul class="header__item-nav--categories-mod"> 
+                      <div class="mod-list"><p> Style </p> 
+                      <li class="mod-item">Classic watch</li>
+                      <li class="mod-item">Sports watch</li>
+                      <li class="mod-item">Waterproof watch</li>
+                      </div>
+                    </ul>
+                    <ul class="header__item-nav--categories-mod"> 
+                      <div class="mod-list"><p> Case size </p> 
+                        <li class="mod-item">Big watch</li>
+                        <li class="mod-item">Medium watch</li>
+                        <li class="mod-item">Small watch</li>
+                      </div>
+                    </ul>
+                   </div>
+                   <div class="categories-block--item"> 
+                    <ul class="header__item-nav--categories-mod"> 
+                      <div class="mod-list"><p> Country </p> 
+                        <li class="mod-item">Japan</li>
+                      </div>
+                    </ul>
+                    <ul class="header__item-nav--categories-mod"> 
+                      <div class="mod-list"><p> Mechanism </p> 
+                        <li class="mod-item">Mechanical watches</li>
+                        <li class="mod-item">Quartz watch</li>
+                      </div>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+          `
+
+        });
+  
+
+
+
+          
 
           htmlNavbar += `
-                <ul class="header__item-nav--categories">
-                <li class="header__item-nav--categories-item">
-                  <a href="" onclick="">${el.categories}</a>
-                  <div class="header__item-nav--categories-block">
-                    <div class="categories-block--item">
-                      <ul class="header__item-nav--categories-mod"> 
-                        <div class="mod-list"><p> Style </p> 
-                        <li class="mod-item">Classic watch</li>
-                        <li class="mod-item">Sports watch</li>
-                        <li class="mod-item">Waterproof watch</li>
-                        </div>
-                      </ul>
-                      <ul class="header__item-nav--categories-mod"> 
-                        <div class="mod-list"><p> Case size </p> 
-                          <li class="mod-item">Big watch</li>
-                          <li class="mod-item">Medium watch</li>
-                          <li class="mod-item">Small watch</li>
-                        </div>
-                      </ul>
-                    </div>
-                    <div class="categories-block--item"> 
-                      <ul class="header__item-nav--categories-mod"> 
-                        <div class="mod-list"><p> Country </p> 
-                          <li class="mod-item">Japan</li>
-                        </div>
-                      </ul>
-                      <ul class="header__item-nav--categories-mod"> 
-                        <div class="mod-list"><p> Mechanism </p> 
-                          <li class="mod-item">Mechanical watches</li>
-                          <li class="mod-item">Quartz watch</li>
-                        </div>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-          `;
+            <ul class="header__item-nav--categories" onclick="headerPage.hendlerClickFilter()">
+              ${ htmlSearchCategories}
+            </ul>`
+      
 
-        })
+          //   <ul class="header__search-categories--list">
+          //   <li class="header__search-categories--list-item" data-f="Men's Watch">Men's Watch</li>
+          //   <li class="header__search-categories--list-item" data-f="Ladies Watch">Ladies Watch</li>
+          //   <li class="header__search-categories--list-item" data-f="Smart watch">Smart watch</li>
+          //   <li class="header__search-categories--list-item" data-f="Smart watch">Smart watch</li>
+            
+            
+          // </ul>
+ 
+
+
+
             
 
             htmlHeader += `
@@ -71,10 +128,7 @@ class Header{
                                 <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"/>
                               </svg>
                                 <ul class="header__search-categories--list">
-                                  <li class="header__search-categories--list-item">Men's Watch</li>
-                                  <li class="header__search-categories--list-item">Ladies Watch</li>
-                                  <li class="header__search-categories--list-item">Smart watch</li>
-                                  <li class="header__search-categories--list-item">Sports watch</li>
+                                  ${htmlSearchCat}
                                 </ul>
                               </div>
                         </div>

@@ -1,44 +1,76 @@
 class Goods{
 
-    // contentWraper(){
-    //     document.body.onclick = function(){
-    //         console.log('work')
-    //     } 
+    testHref(id){
+        CATALOG.forEach((el)=>{
+            if (id == el.id){
+                
+            el.allImg.forEach((srcImg)=>{
+                console.log(srcImg);
+            })
+            }
+        })
+    }
+
+    // activeClassClick(){
+    //     let imgMin = document.getElementById('img-min');
+    //     if (img.classList.contains())
     // }
 
+    hendlerClickChangeImg(){
+         document.body.onclick = function(event){
+                event = event || window.event;
+                // console.log(event.target.classList.contains('item-img__second'));
+                if (event.target.classList.contains('item-img__second')){
+                    let allDivs = document.querySelectorAll('.item-img__second')
+                    for (let i=0; i<allDivs.length; i++){
+                        allDivs[i].classList.remove('item-img__second--active'); 
+                    }
+                    document.getElementById('img-max').src = event.target.src;
+                } 
+            };
+    }
 
-    // <img class="item-img__second item-img__second--active" src="${el.img2}" alt="${el.img}">
-    // <img class="item-img__second" src="${el.img3}" alt="${el.img}">
-    // <img class="item-img__second" src="${el.img4}" alt="${el.img}">
-    // <img class="item-img__second" src="${el.img5}" alt="${el.img}">
+
 
     render(goodsItem){
         let htmlGoods = '';
         let goodsImg = '';
+        let goodsImgSecond = '';
         
-        
+
             CATALOG.forEach((el) => {
-                // el.allImg.forEach((el)={
-                //     goodsImg += ``
-                    
-                // })
+
+
                 if (goodsItem == el.id){
+                    el.allImg.splice(4)
+                    el.allImg.forEach((srcImg)=>{
+                        goodsImgSecond += `
+                        <img id="img-min" class="item-img__second item-img__second--active " onclick="goodsPage.hendlerClickChangeImg()" src="${srcImg}" alt="${srcImg}">
+                        `
+                    })
+        
 
                     
+                    goodsImg +=`
+                        <div class="item-img">
+                            <img id="img-max" class="item-img__main" src="${el.img}" alt="${el.img}">
+                            <div class="item-img__second-block">
+                                ${goodsImgSecond}
+                            </div>
+                        </div>
+                    `;
+
                     
                     htmlGoods += ` 
                     <section class="goods-page">
-                        <div class="click__back" onclick="goodsPage.handleRenderproductsPage()"> < </div>
+                        <div class="nav-str"> 
+                        <span class="click__back" onclick="goodsPage.handleRenderproductsPage()"> < </span>
+                        <span class="nav-str__item" onclick="goodsPage.handleRenderproductsPage()"> Home </span>
+                        <span class="nav-str__item"> ${el.categories} </span>
+                        <span class="nav-str__item"> ${el.name} </span>
+                        </div>
                         <div class="goods-page__item">
-                        <div class="item-img">
-                        <img id="img-max" class="item-img__main" src="${el.img}" alt="${el.img}">
-                        <div class="item-img__second-block">
-                        <img class="item-img__second item-img__second--active" src="${el.img2}" alt="${el.img}">
-                        <img class="item-img__second" src="${el.img3}" alt="${el.img}">
-                        <img class="item-img__second" src="${el.img4}" alt="${el.img}">
-                        <img class="item-img__second" src="${el.img5}" alt="${el.img}">
-                        </div>
-                        </div>
+                            ${goodsImg}
                         <div class="description-block">
                         <div class="description-block__info">
                         <h2>${el.name}</h2>
@@ -121,7 +153,7 @@ class Goods{
                                 </div>
                                 <div class="info-goods__price-bay">
                                 <div class="goods-price">${el.price}</div>
-                                <button class="btn_primery btn_primery-by">BUY</button>
+                                <button class="btn_primery btn_primery-by" onclick = "productsPage.handleSetLocationStorage(this, '${el.id}','${el.counter}','${el.name}');">BUY</button>
                                 </div>
                                 <div class="info-goods__second">
                                 <button class="btn_secondary btn-by-oneclick">Buy in 1 click</button>

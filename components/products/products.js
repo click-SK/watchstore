@@ -22,6 +22,8 @@ class Products{
         } 
         
         headerPage.render(products.length);
+
+        
         
 
     }
@@ -35,11 +37,11 @@ class Products{
 
         const productsStore = localStorageUtil.getProducts('');
         let htmlCatalog = '';
-
+        
         CATALOG.splice (12);
      
         CATALOG.forEach((el) =>{
-
+            
             
            let activeClass = '';
            let activeText = '';
