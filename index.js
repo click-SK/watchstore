@@ -5,6 +5,7 @@ function render(){
 
     productsPage.render();
     
+    
 }
 
 
@@ -26,15 +27,13 @@ fetch('server/catalog.json')
 
  // -- goods content wraper on goodsPage --\\
 
-document.body.onclick = function(event){
-    event = event || window.event;
-    // console.log(event.target.classList.contains('item-img__second'));
-    if (event.target.classList.contains('item-img__second')){
-        console.log('yes');
-        let src = event.target.src;
-        console.log(src);
-        document.getElementById('.item-img__main').src = event.target.src;
-    }
-} 
-   
- 
+// document.body.onclick = function(event){
+//     event = event || window.event;
+//     // console.log(event.target.classList.contains('item-img__second'));
+//     if (event.target.classList.contains('item-img__second')){
+//         console.log('yes');
+//         let src = event.target.src;
+//         console.log(src);
+//         document.getElementById('.item-img__main').src = event.target.src;
+//     }
+// } 
