@@ -171,3 +171,37 @@
 }
 
 /* ----------main section end--------- */
+
+
+@media(max-width:1300px){
+    .main-section__goods{
+        display: grid;
+        grid-template: repeat(auto-fill,420px) / repeat(auto-fill, 285px);
+        align-items: stretch;
+        
+    }
+
+}
+
+@media(max-width:852px){
+    .main-section{
+        margin-top: 0;
+    }
+
+    .main-section__goods{
+        display: grid;
+        grid-template: repeat(auto-fill,420px) / repeat(2, 285px);
+        align-items: stretch;
+        
+    }
+}
+
+@media(max-width:550px){
+    .main-section__goods{
+        display: grid;
+        grid-template: repeat(auto-fill,420px) / repeat(1, 285px);
+        align-items: stretch;
+        
+    }
+
+}
