@@ -37,3 +37,4 @@ fetch('server/catalog.json')
 //         document.getElementById('.item-img__main').src = event.target.src;
 //     }
 // } 
+
