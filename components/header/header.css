@@ -639,6 +639,10 @@ button{
 
 
 @media(max-width:600px){
+
+    .header {
+        left: -276%;
+    }
     .header__item-nav--categories-block {
         width: 120%;
         height: 400px;
@@ -669,8 +673,13 @@ button{
 }
 
 @media(max-width:400px){
+
+    .header {
+        left: -312%;
+    }
     .header__item-nav--categories-block {
         width: 87%;
         height: 400px;
     }
 }
+
