@@ -3,7 +3,7 @@
 
 .prod {
     /* flex: 1 1 100%; */
-    max-width: 1110px;
+    /* max-width: 1110px; */
     /* align-items: center; */
 }
 
@@ -11,7 +11,7 @@
 .main-section{
     display: flex;
     position: relative;
-    max-width: 1110px;
+    /* max-width: 1110px; */
     margin-top: 30px;
     text-align: center;
     margin-left: auto;
@@ -51,10 +51,12 @@
 }
 
 .main-section__goods{
-    display: grid;
+    /* display: grid;
     grid-template: repeat(auto-fill,420px) / repeat(4, 285px);
-    align-items: stretch;
-    max-width: 1110px;
+    align-items: stretch; */
+    display: flex;
+    flex-wrap: wrap;
+    /* max-width: 1110px; */
     margin-top: 22px;
     margin-bottom: 28px;
     /* justify-content: center; */
@@ -119,12 +121,12 @@
 }
 
 .main-section__item_response{
+    display: flex;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
-    display: flex;
     align-items: center;
     text-align: right;
 /* display 2 collor */
@@ -173,35 +175,60 @@
 /* ----------main section end--------- */
 
 
-@media(max-width:1300px){
-    .main-section__goods{
-        display: grid;
-        grid-template: repeat(auto-fill,420px) / repeat(auto-fill, 285px);
-        align-items: stretch;
-        
+@media(max-width:1081px){
+    .prod{
+        margin-top: 50px;
+    }
+
+
+}
+
+
+@media(max-width:970px){
+    .footer__top_h3{
+        font-size: 26px;
+    }
+
+    .main-section__item{
+        flex: 0 1 45%;
+    }
+    
+    .main-section__item_img{
+        object-fit: cover;
+        object-position: 0 0;
+        width: 100%;
+    }
+    .main-section__item_prise-butt {
+        justify-content: space-around;
+        margin: 0px 15px 10px 15px;
     }
 
 }
 
-@media(max-width:852px){
-    .main-section{
-        margin-top: 0;
-    }
+@media(max-width:850px){
 
+
+}
+@media(max-width:600px){
     .main-section__goods{
-        display: grid;
-        grid-template: repeat(auto-fill,420px) / repeat(2, 285px);
-        align-items: stretch;
-        
+        max-width: 90%;
     }
+    .main-section__item {
+        flex: 0 1 100%;
+    }
+    .main-section__item_img{
+        object-fit: cover;
+        width: 80%;
+        margin: 5px 0 0 0;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 10px;
+    }
+    
 }
 
-@media(max-width:550px){
+@media(max-width:353px){
     .main-section__goods{
-        display: grid;
-        grid-template: repeat(auto-fill,420px) / repeat(1, 285px);
-        align-items: stretch;
-        
+        max-width: 90%;
     }
-
 }

@@ -5,7 +5,7 @@ class Footer{
             htmlFooter += `
             <footer>
                  <div class="footer__top">
-                    <div class="footer__top_nav">
+                    <div class="footer__top_nav footer__creen-min">
                         <div class="footer__top_h3">Katalog</div>
                         <div class="footer__top_item">
                             <h4>Men's Watch</h4>
@@ -14,7 +14,7 @@ class Footer{
                             <h4>Sports watch</h4>
                         </div>
                     </div>
-                    <div class="footer__top_nav">
+                    <div class="footer__top_nav footer__creen-min">
                         <div class="footer__top_h3">Information</div>
                         <div class="footer__top_item">
                             <h4>Blog</h4>
@@ -49,7 +49,7 @@ class Footer{
                     <p class="footer__bot_watch-store">© 2012-2022 "GO-Time" watch store. All rights reserved.</p>
                     <div class="footer__bot_social">  </div>
                 </div>
-                <div class="footer__backgraund"></div>
+                
             </footer> `
         ;
 
@@ -59,3 +59,5 @@ class Footer{
 
 const footerPage = new Footer();
 footerPage.render();
+
+// <div class="footer__backgraund"></div>//

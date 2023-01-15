@@ -3,7 +3,7 @@
 .goods{
     position: relative;
     top:20px;
-    max-width: 1100px;
+    /* max-width: 1100px; */
    /* display: block;  */
    background-color: #FFFFFF;
    
@@ -48,19 +48,19 @@
 }
 
 .goods-page__item{
-    width: 58%;
+    flex: 0 1 58%;
 
 
 }
 
 .item-img{
-    width: 635px;
-    height: 766px;
+    /* width: 635px; */
+    /* height: 766px; */
 }
 
 .item-img__main{
-    height: 635px;
-    width: 635px;
+    /* height: 635px; */
+    /* width: 635px; */
     border-radius: 10px;
     border: 1px solid #dadada;
 }
@@ -85,7 +85,7 @@
 }
 
 .description-block{
-    width: 635px;
+    /* width: 635px; */
     display: flex;
     flex-wrap: wrap;
 }
@@ -100,7 +100,7 @@
     position: absolute;
     top: 110%;
     left: 3%;
-    width: 600px;
+    width: 80%;
     border-bottom: 2px solid rgba(0, 0, 0, 25%);
 }
 
@@ -153,7 +153,7 @@
     position: absolute;
     top: 107%;
     left: 3%;
-    width: 600px;
+    width: 80%;
     border-bottom: 2px solid rgba(0, 0, 0, 25%);
 }
 
@@ -222,7 +222,7 @@
 }
 
 .goods-page__info{
-    width: 42%;
+    flex: 0 1 42%;
     display: flex;
     flex-direction: column;
 
@@ -306,17 +306,17 @@
 
 .info-goods__price-bay{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: row;
-    margin: 15px 25px 0 25px;
+    margin-top: 15px;
     height: 53px;
     width: 100%;
 
 }
 
 .goods-price{
+    flex: 0 1 40%;
     height: 53px;
-    width: 189px;
     background: #FFFFFF;
     border-radius: 10px;
     font-family: 'Montserrat';
@@ -333,10 +333,10 @@
 
 .btn_primery-by{
     display: flex;
+    flex: 0 1 40%;
     align-items: center;
     justify-content: center;
     height: 53px;
-    width: 189px;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
@@ -368,7 +368,7 @@ svg {
     font-size: 20px;
     line-height: 24px;
     text-align: center;
-    width: 127px;
+    width: 40%;
     /* red-prime */
     color: var(--color-red-prime);
     border-radius: 0%;
@@ -484,33 +484,40 @@ svg {
     height: 25px;
 }
 
-@media(max-width:852px){
+@media(min-width:1081px){
 
-    .goods-page{
-        display: flex;
-        margin-top: 67px;
-        flex-direction: column-reverse;
-        align-items: center;
-    }
+}
+
+@media(max-width:1081px){
 
     .nav-str{
         width: 100%;
-        left: 95px;
     }
+    
+    .item-img__main {
+        /* height: 100%; */
+        object-fit: cover;
+        object-position: 0 0;
+        width: 100%;
 
-    .goods-page__item {
-        display: flex;
-        margin: 70px;
-        flex: 0 0 100%;
-        flex-direction: column;
-        align-items: center;
     }
+}
 
-    .goods-page__info {
-        /* flex: 1 1 50%; */
-        width: 82%;
-        display: flex;
-        flex-direction: column;
-    }
+
+
+@media(max-width:970px){
+    
+}
+
+@media(max-width:850px){
+
+
+}
+@media(max-width:600px){
+    
+    
+}
+
+@media(max-width:353px){
     
 }

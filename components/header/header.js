@@ -4,28 +4,21 @@ class Header{
       
     }
 
-    // let categ = [];
-// console.log(goods);
-// goods.forEach((el) =>{
-//     console.log(el.name)
-//     if (!categ.includes(el.name)){
-//         categ.push(el.name);
-//     } return categ;
-    
+    hendlerMenuBurger(){
+      // let menuBtn = document.querySelector('.header-burger');
+      // let menu = document.querySelector('.header');
 
-    // hendlerClickFilter(){
-    //   let result = [];
-    //   CATALOG.forEach((el) =>{ 
-    //     if (!result.includes(el.categories)){
-    //         result.push(el.categories);
-    //     } return result;
-    //   });
-    //   console.log(result);
+      // document.querySelector('.header-burger').addEventListener('click', function(){
+        document.querySelector('.header').classList.add('header-active');
+        document.querySelector('.header-burger').classList.add('hidden');
+      
+    }
 
-    //   result.forEach((name) => {
-    //     console.log(name);
-    //   })
-    // }
+    hendlerMenuBurgerDisable(){
+      document.querySelector('.header').classList.remove('header-active');
+      document.querySelector('.header-burger').classList.remove('hidden');
+
+    }
 
     render(count) {
 
@@ -117,8 +110,10 @@ class Header{
 
             htmlHeader += `
             <header class="">
-            <div class= "header-burger">
-              <div class="header__burger-button"> ||| </div>
+            <div class= "header-burger " onclick = "headerPage.hendlerMenuBurger();">
+              <div class="header__burger-button"> <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg> </div>
               <div class="header__burger-logo"> LOGO</div>
              </div>
             <div class=" header-item header__top">
@@ -136,7 +131,7 @@ class Header{
                                 </ul>
                               </div>
                         </div>
-                        <button class="header__search-btn btn_primery btm-prime-blue" >GO</button>
+                        <button class="header__search-btn btn_primery btm-prime-blue"  >GO</button>
                 </div>
                 <div class="header__acc-button">
                     <button class="header__btn_primery btn_primery">Log In</button>
@@ -160,6 +155,10 @@ class Header{
                     <div id='count' class="counter"> ${count} </div> 
                   </div>
             </div>
+            <div class="bi bi-backspace backspace" onclick = "headerPage.hendlerMenuBurgerDisable();" > <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-backspace" viewBox="0 0 16 16">
+            <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z"/>
+            <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z"/>
+          </svg><p> close</p> </div>
         </header>
              `
 
