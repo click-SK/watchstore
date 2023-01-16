@@ -566,4 +566,11 @@ svg {
     .info-goods__second{
         display: none;
     }
+    .info-goods-block {
+        flex-wrap: wrap;
+    }
+
+    .info-goods__price-bay {
+        margin-top: 30px;
+    }
 }
