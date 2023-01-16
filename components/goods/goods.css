@@ -257,7 +257,7 @@
 
 .info-goods-block{
     display: flex;
-    width: 104%;
+    width: 100%;
     flex-wrap: nowrap;
     justify-content: center;
     margin-top: 1px;
@@ -509,10 +509,15 @@ svg {
 
     .info-goods__block {
         height: 185px;
+        padding-bottom: 12px;
     }
 
     .info-goods__second {
         margin-right: 6%;
+    }
+
+    .item-img__second {
+        height: 60px;
     }
 
 
@@ -553,6 +558,12 @@ svg {
     }
 }
 
-@media(max-width:353px){
-    
+@media(max-width:400px){
+    .goods{
+        width: 100%;
+    }
+
+    .info-goods__second{
+        display: none;
+    }
 }
