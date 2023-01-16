@@ -692,12 +692,24 @@ button{
 
         
     }
-
+    .backspace {
+        top: 78%;
+        
+        flex-direction: column;
+    }
    
 
     .header__item-nav--categories-block {
         width: 87%;
         height: 400px;
     }
+    .header__item--page{
+        display: none;
+    }
 }
 
+@media(max-width:300px){
+.header__item--page{
+    display: none;
+}
+}
