@@ -178,7 +178,8 @@ class Header{
       let navData = event.target.getAttribute('data-f');
       categoriesPage.render(navData);
       ROOT_PRODUCTS.innerHTML = "";
-      // console.log(navData);
+      ROOT_GOODS.innerHTML = "";
+      console.log(navData);
   }
     
 }

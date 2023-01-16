@@ -79,7 +79,7 @@ class Goods{
                         <div class="nav-str nav-str-position"> 
                         <span class="click__back" onclick="goodsPage.handleRenderproductsPage()"> < </span>
                         <span class="nav-str__item" onclick="goodsPage.handleRenderproductsPage()"> Home </span>
-                        <span class="nav-str__item"> ${el.categories} </span>
+                        <span class="nav-str__item" onclick = "headerPage.categoriesData(event)" data-f="${el.categories}"> ${el.categories} </span>
                         <span class="nav-str__item"> ${el.name} </span>
                         </div>
                         <div class="goods-page__item">

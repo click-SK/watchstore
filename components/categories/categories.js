@@ -1,3 +1,5 @@
+
+
 class Categories{
     constructor(){
         this.classNameActive = 'main-section__item_btn_active';
@@ -103,7 +105,19 @@ class Categories{
                 <div class="categories-section__goods">
                     <div class="goods__filter">
                         <ul>Filter
-                            <li>BY PRICE:</li>
+                        <li class="filter-item filter-price"> <p> BY PRICE </p>
+                        <div id="range-slider" class="filter-price__slider"> </div>
+                        <div class="filter-price__inputs">
+                            <label class="filter-price__label">
+                                <input id="input-range-0" type="number" min="1" max="200" placeholder="1" class="filter-price__input">
+                                <span>-</span>
+                            </label>
+                            <label class="filter-price__label">
+                                <input id="input-range-1" type="number" min="1" max="200" placeholder="200" class="filter-price__input">
+                                <span>USD</span>
+                            </label>
+                        </div>
+                    </li>
                             <li>WATCH TYPE</li>
                             <li>BY COUNTRY</li>
                         </ul>
@@ -137,6 +151,7 @@ class Categories{
         
         ROOT_CATEGORIES.innerHTML = "";
     }
+    
 }
 
 const categoriesPage = new Categories();
