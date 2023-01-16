@@ -21,15 +21,28 @@ class Goods{
                 event = event || window.event;
                 // console.log(event.target.classList.contains('item-img__second'));
                 if (event.target.classList.contains('item-img__second')){
-                    let allDivs = document.querySelectorAll('.item-img__second')
-                    for (let i=0; i<allDivs.length; i++){
-                        allDivs[i].classList.remove('item-img__second--active'); 
-                    }
+                    // let allDivs = document.querySelectorAll('.item-img__second')
+                    // for (let i=0; i<allDivs.length; i++){
+                    //     if (event.target.classList.contains('item-img__second--active')){
+                    //         allDivs[i].classList.remove('item-img__second--active'); 
+                    //     } else if (!event.target.classList.contains('item-img__second--active')){
+                    //         allDivs[i].classList.add('item-img__second--active')
+                    //     } 
+
+                    // }
                     document.getElementById('img-max').src = event.target.src;
                 } 
             };
     }
 
+    clickAddClass(){
+            let imgSecondClass = document.querySelector('.item-img__second');
+            let imgActiveClass = document.querySelector('.item-img__second--active')
+            if (imgSecondClass.classList.contains('item-img__second--active')) {
+                imgActiveClass.classList.remove('item-img__second--active')
+            } imgSecondClass.classList.add('item-img__second--active')
+        
+    }
 
 
     render(goodsItem){
@@ -45,7 +58,7 @@ class Goods{
                     el.allImg.splice(4)
                     el.allImg.forEach((srcImg)=>{
                         goodsImgSecond += `
-                        <img id="img-min" class="item-img__second item-img__second--active " onclick="goodsPage.hendlerClickChangeImg()" src="${srcImg}" alt="${srcImg}">
+                        <img id="img-min" class="item-img__second " onclick="goodsPage.hendlerClickChangeImg(); goodsPage.clickAddClass()" src="${srcImg}" alt="${srcImg}">
                         `
                     })
         
@@ -63,7 +76,7 @@ class Goods{
                     
                     htmlGoods += ` 
                     <section class="goods-page">
-                        <div class="nav-str"> 
+                        <div class="nav-str nav-str-position"> 
                         <span class="click__back" onclick="goodsPage.handleRenderproductsPage()"> < </span>
                         <span class="nav-str__item" onclick="goodsPage.handleRenderproductsPage()"> Home </span>
                         <span class="nav-str__item"> ${el.categories} </span>

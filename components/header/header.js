@@ -4,6 +4,11 @@ class Header{
       
     }
 
+    hendlerRenderCat(){
+      categoriesPage.render();
+      ROOT_PRODUCTS.innerHTML = "";
+    }
+
     hendlerMenuBurger(){
       // let menuBtn = document.querySelector('.header-burger');
       // let menu = document.querySelector('.header');
@@ -42,11 +47,11 @@ class Header{
           
           
           htmlSearchCat += `
-          <li class="header__search-categories--list-item" data-f="Men's Watch">${name}</li>
+          <li class="header__search-categories--list-item" data-f="${name}">${name}</li>
           `
           htmlSearchCategories +=`
           <li class="header__item-nav--categories-item">
-                <a href="#" data-f="Men's Watch" >${name}</a>
+                <a href="#" onclick = "categoriesPage.filterKatalotGoods(event); headerPage.hendlerRenderCat();" data-f="${name}" >${name}</a>
                 <div class="header__item-nav--categories-block">
                   <div class="categories-block--item">
                     <ul class="header__item-nav--categories-mod"> 

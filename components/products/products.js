@@ -8,7 +8,7 @@ class Products{
     }
 
 
-        //----------button (add goods)-------///
+        //----------button (add goods to shopping cart)-------///
     handleSetLocationStorage(element, id, count, name){
         const {pushProduct, products} = localStorageUtil.putProducts(id, count, name);
         
@@ -22,22 +22,25 @@ class Products{
         } 
         
         headerPage.render(products.length);
-
-        
-        
-
     }
 
-    // ---render goods page--\\
+
+
+    onClickScroll(){
+        window.scrollTo(0, 0); 
+    }
+ 
 
 
     
     
-    render() {
+    render(event) {
 
         const productsStore = localStorageUtil.getProducts('');
         let htmlCatalog = '';
+        let mainTitle = 'popular goods'
         
+
         CATALOG.splice (12);
      
         CATALOG.forEach((el) =>{
@@ -54,8 +57,8 @@ class Products{
             }
 
             htmlCatalog += `
-            <div id="${el.id}"class="main-section__item" >
-                <img  class="main-section__item_img" src="${el.img}" alt="${el.altImg}" onclick = "productsPage.handleRenderGoods(${el.id});" >
+            <a id="${el.id}" class="main-section__item" >
+                <img  class="main-section__item_img" src="${el.img}" alt="${el.altImg}" onclick = "productsPage.handleRenderGoods(${el.id}); productsPage.onClickScroll();"  >
                 <h2 class="main-section__item_title" onclick = "productsPage.handleRenderGoods(${el.id});">${el.name}</h2>
                 <div class="main-section__item_prise-butt">
                     <div class="main-section__item_prise" onclick = "productsPage.handleRenderGoods(${el.id});">${el.price}$</div>
@@ -64,7 +67,7 @@ class Products{
                         ${activeText}
                     </button>
                 </div>
-        </div>
+            </a>
             `
 
         })
@@ -72,7 +75,7 @@ class Products{
 
         const html = `
             <section class="main-section"> 
-                <title class="main-section__title" >popular goods</title>
+                <title class="main-section__title" >${mainTitle}</title>
                 <div class="main-section__goods">
                 ${htmlCatalog} 
                 </div>
