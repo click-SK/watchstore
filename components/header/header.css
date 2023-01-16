@@ -641,12 +641,17 @@ button{
 @media(max-width:600px){
 
     .header {
-        left: -276%;
+        /* left: -246%; */
+        margin-right: 124%;
     }
     .header__item-nav--categories-block {
         width: 120%;
         height: 400px;
     }
+    .header__search-categories{
+        display: none;
+    }
+
     .backspace {
         top: 80%;
         left: 64%;
@@ -675,8 +680,21 @@ button{
 @media(max-width:400px){
 
     .header {
-        left: -312%;
+        /* left: -293%; */
+        margin-right: 124%;
     }
+
+    .header-active {
+        display: flex;
+        position: absolute;
+        left: 0%;
+        width: 100%;
+
+        
+    }
+
+   
+
     .header__item-nav--categories-block {
         width: 87%;
         height: 400px;
