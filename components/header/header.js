@@ -5,8 +5,7 @@ class Header{
     }
 
     hendlerRenderCat(){
-      categoriesPage.render();
-      ROOT_PRODUCTS.innerHTML = "";
+
     }
 
     hendlerMenuBurger(){
@@ -51,7 +50,7 @@ class Header{
           `
           htmlSearchCategories +=`
           <li class="header__item-nav--categories-item">
-                <a href="#" onclick = "categoriesPage.filterKatalotGoods(event); headerPage.hendlerRenderCat();" data-f="${name}" >${name}</a>
+                <a href="#" onclick = "headerPage.categoriesData(event)" data-f="${name}" >${name}</a>
                 <div class="header__item-nav--categories-block">
                   <div class="categories-block--item">
                     <ul class="header__item-nav--categories-mod"> 
@@ -88,7 +87,7 @@ class Header{
 
         });
   
-
+        
 
 
           
@@ -173,9 +172,18 @@ class Header{
         ;
 
         ROOT_HEADER.innerHTML = htmlHeader;
+        
     }
+    categoriesData(event){
+      let navData = event.target.getAttribute('data-f');
+      categoriesPage.render(navData);
+      ROOT_PRODUCTS.innerHTML = "";
+      // console.log(navData);
+  }
     
 }
+
+
 
 
 

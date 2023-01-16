@@ -15,7 +15,7 @@
 }
 
 .goods__filter{
-    flex: 0 1 20%;
+    flex: 0 1 25%;
     
 }
 
@@ -51,5 +51,10 @@
 }
 
 .goods-block__section{
-    justify-content: space-between;
+    justify-content: flex-start;
+}
+
+.goods-block__item{
+    margin-left: 2%;
+    
 }

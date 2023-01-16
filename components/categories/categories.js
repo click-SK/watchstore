@@ -24,35 +24,45 @@ class Categories{
         headerPage.render(products.length);
     }
 
-    filterKatalotGoods(event){
-        // onclick = "productsPage.filterKatalotGoods(event)"
-        let navData = event.target.getAttribute('data-f');
-        console.log(navData);
-    }
+
 
     onClickScroll(){
         window.scrollTo(0, 0); 
     }
  
 
+    testFilter(){
+        let navData = 'Smart Watch';
+        let goodsArr = [];
+
+        CATALOG.forEach((el) =>{
+            if (navData === el.categories ){
+                goodsArr.push(el);
+            } return goodsArr;
+        })
+        console.log(goodsArr);
+        
+    }
+
 
     
     
-    render() {
+    render(navData) {
 
         const productsStore = localStorageUtil.getProducts('');
         let htmlCatalog = '';
-        let mainTitle = 'categories'
         
-        function dataCat(data){
-            let navDataEv = event.target.getAttribute('data-f');
-            console.log(navDataEv);
-        }
+        let goodsArr = [];
 
-
-        CATALOG.splice (9);
-     
         CATALOG.forEach((el) =>{
+            if (navData === el.categories ){
+                goodsArr.push(el);
+            } return goodsArr;
+        })
+
+        
+     
+        goodsArr.forEach((el) =>{
             
             
            let activeClass = '';
@@ -66,7 +76,7 @@ class Categories{
             }
 
             htmlCatalog += `
-            <a id="${el.id}" class="main-section__item" >
+            <a id="${el.id}" class="main-section__item goods-block__item" >
                 <img  class="main-section__item_img" src="${el.img}" alt="${el.altImg}" onclick = "productsPage.handleRenderGoods(${el.id}); productsPage.onClickScroll();"  >
                 <h2 class="main-section__item_title" onclick = "productsPage.handleRenderGoods(${el.id});">${el.name}</h2>
                 <div class="main-section__item_prise-butt">
@@ -87,10 +97,9 @@ class Categories{
                 <div class="nav-str categories-section__parth"> 
                 <span class="click__back" onclick="goodsPage.handleRenderproductsPage()"> < </span>
                 <span class="nav-str__item" onclick="goodsPage.handleRenderproductsPage()"> Home </span>
-                <span class="nav-str__item"> cat </span>
-                <span class="nav-str__item"> bname </span>
+                <span class="nav-str__item"> ${navData} </span>
                 </div>
-                <title class="main-section__title" >name</title>
+                <title class="main-section__title" onclick = "categoriesPage.testFilter();" >${navData}</title>
                 <div class="categories-section__goods">
                     <div class="goods__filter">
                         <ul>Filter
