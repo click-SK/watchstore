@@ -46,25 +46,92 @@ class Categories{
         
     }
 
+    rangeSliderPrice(valueFilterRange){
+        let rangeSlider = document.getElementById('range-slider');
+    if(rangeSlider) {
+        noUiSlider.create(rangeSlider, {
+            start: [1, 199],
+            connect: true,
+            step: 1,
+            range: {
+                'min': 1,
+                'max': 199
+            }
+        });  
 
+        const input0 = document.getElementById('input-range-0'); 
+        const input1 = document.getElementById('input-range-1'); 
+        const inputs = [input0, input1]
+    
+        rangeSlider.noUiSlider.on('update', function(values, handle){
+            inputs[handle].value = Math.round(values[handle])
+            let value0 = input0.value
+            let value1 = input1.value
+            let valuesSt = [];
+            valuesSt.push(value0, value1);
+            let filterRangeValueStorage = localStorage.setItem('filterRangeValueStorage', JSON.stringify(valuesSt));
+        })
+
+
+        const setRangeSlider = (i, value) =>{
+            let arr = [null, null];
+            arr[i] = value;
+
+            rangeSlider.noUiSlider.set(arr)
+
+            // console.log(arr);
+        };
+
+        inputs.forEach((el,index) =>{
+            el.addEventListener('change', (e) =>{
+                setRangeSlider(index, e.currentTarget.value);
+            })
+            
+        })
+        
+    }; 
+    }
+
+
+    testFilterValue(){
+        let valueFilterRange = JSON.parse(localStorage.getItem("filterRangeValueStorage"));
+        console.log(valueFilterRange);
+
+    }
+    
+    
     
     
     render(navData) {
-
+        const valueFilterRange = JSON.parse(localStorage.getItem("filterRangeValueStorage"));
         const productsStore = localStorageUtil.getProducts('');
         let htmlCatalog = '';
+        let filterRange = ``;
         
         let goodsArr = [];
+        let goodsArrprice = [];
 
         CATALOG.forEach((el) =>{
             if (navData === el.categories ){
                 goodsArr.push(el);
-            } return goodsArr;
+            }return goodsArr;            
+        })
+
+
+        
+        goodsArr.forEach((el)=>{
+            if (el.price >= valueFilterRange[0] || el.price <= valueFilterRange[1]  ) {
+                goodsArrprice.push(el)
+            }return goodsArrprice   
         })
 
         
+
+        
+        
      
-        goodsArr.forEach((el) =>{
+        goodsArrprice.forEach((el) =>{
+
             
             
            let activeClass = '';
@@ -92,6 +159,23 @@ class Categories{
             `
 
         })
+
+        filterRange += `
+        <li class="filter-item filter-price" onclick="categoriesPage.testFilterValue()"><p>BY PRICE</p>
+            
+            <div class="filter-price__inputs">
+                <label class="filter-price__label">
+                    <input id="input-range-0" type="number" min="1" max="200" placeholder="1" class="filter-price__input">
+                    <span>-</span>
+                </label>
+                <label class="filter-price__label">
+                    <input id="input-range-1" type="number" min="1" max="200" placeholder="200" class="filter-price__input">
+                    <span>USD</span>
+                </label>
+            </div>
+            <div id="range-slider" class="filter-price__slider" ">  </div>
+        </li>
+        `
         
 
         const html = `
@@ -101,26 +185,14 @@ class Categories{
                 <span class="nav-str__item" onclick="goodsPage.handleRenderproductsPage()"> Home </span>
                 <span class="nav-str__item"> ${navData} </span>
                 </div>
-                <title class="main-section__title" onclick = "categoriesPage.testFilter();" >${navData}</title>
+                <title id="main-title" class="main-section__title" data-f="${navData}" onclick="categoriesPage.testFilterValue(); categoriesPage.rangeSliderPrice();" >${navData}</title>
                 <div class="categories-section__goods">
                     <div class="goods__filter">
-                        <ul>Filter
-                        <li class="filter-item filter-price"> <p> BY PRICE </p>
-                        <div id="range-slider" class="filter-price__slider"> </div>
-                        <div class="filter-price__inputs">
-                            <label class="filter-price__label">
-                                <input id="input-range-0" type="number" min="1" max="200" placeholder="1" class="filter-price__input">
-                                <span>-</span>
-                            </label>
-                            <label class="filter-price__label">
-                                <input id="input-range-1" type="number" min="1" max="200" placeholder="200" class="filter-price__input">
-                                <span>USD</span>
-                            </label>
-                        </div>
-                    </li>
-                            <li>WATCH TYPE</li>
-                            <li>BY COUNTRY</li>
-                        </ul>
+                    <ul>
+                        ${filterRange}
+                        <li class="filter-item">WATCH TYPE</li>
+                        <li class="filter-item">BY COUNTRY</li>
+                    </ul>
                     </div>
                     <div class="goods-block">
                         <div class="goods-block__sorting">Sorting
@@ -156,4 +228,7 @@ class Categories{
 
 const categoriesPage = new Categories();
 // categoriesPage.render();
+
+
+// range slide
 
