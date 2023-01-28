@@ -67,7 +67,7 @@ class Header{
         CATALOG.forEach((el) =>{
 
           searchFormItem +=`
-          <li id="search-item" data-g="${el.name}" class="search-form__item"> 
+          <li id="search-item" data-f="${el.name}" class="search-form__item" onclick = "productsPage.handleRenderGoods(${el.id}); productsPage.onClickScroll();"> 
             <img class="item-img--search" src="${el.img}" alt="">
             <div class="item-name">${el.name}</div>
             <div class="item-price">${el.price}$</div>
@@ -169,7 +169,7 @@ class Header{
                                 </ul>
                               </div>
                         </div>
-                        <button class="header__search-btn btn_primery btm-prime-blue"   >GO</button>
+                        <button class="header__search-btn btn_primery btm-prime-blue hidden"   >GO</button>
                 </div>
                 <div class="header__acc-button">
                     <button class="header__btn_primery btn_primery">Log In</button>
