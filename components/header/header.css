@@ -1,6 +1,8 @@
 /* --------header-start------------- */
 
-
+.hide{
+    display: none;
+}
 
 header{
     display: flex;
@@ -64,6 +66,7 @@ header{
 .header__search-input{
     /* flex: 1 1 70%; */
     /* margin-right: 7px; */
+    position: relative;
     width: 81.3%;
     color:var(--color-unfocuse) ;
     font-family: 'Montserrat';
@@ -80,9 +83,59 @@ header{
     caret-color: var(--color-red-prime)
 }
 
-.header__search-input:focus{
-    color: var(--color-display-1);
+.break-search{
+    display: none;
+    position: absolute;
+    z-index: 103;
+    left: 68%;
+    top: 17px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--color-display-2);
+    flex-direction: row;
+    align-items: center;
 }
+
+.search-item__block{
+    display: flex;
+    position: absolute;
+    top:50px;
+    width: 100%;
+    flex-direction: column;
+    background-color: #F8F9FA;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.search-form__item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 0 20px 0 20px; */
+    padding: 5px 20px 5px 20px;
+    border-top: 1px solid var(--color-unfocuse);
+
+}
+.item-img{
+    width: 55px;
+    border-radius: 10px;
+
+}
+.item-name{
+
+}
+.item-price{
+
+}
+
+
+
+
 
 /* categ-dropdown search end*/
 .header__search-categories{

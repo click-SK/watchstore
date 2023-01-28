@@ -30,6 +30,8 @@ class Header{
         let htmlHeader = '';
         let htmlSearchCategories = '';
         let htmlNavbar = '';
+        let htmlSearchCat = ``;
+        let searchFormItem = ``;
         let result = [];
         CATALOG.forEach((el) =>{ 
           if (!result.includes(el.categories)){
@@ -37,8 +39,18 @@ class Header{
           } return result;
         });
 
+        CATALOG.forEach((el) =>{
 
-        let htmlSearchCat = ``;
+          searchFormItem +=`
+          <div class="search-form__item"> 
+            <img class="item-img" src="${el.img}" alt="">
+            <div class="item-name">${el.name}</div>
+            <div class="item-price">${el.price}$</div>
+          </div>
+          `
+        });
+
+
         
 
 
@@ -119,7 +131,9 @@ class Header{
                 <div class="header__logo">GO-TIME</div>
                 <div class="header__search">
                         <div class="header__search-form">
+                        <div class="break-search"> x </div>
                             <input class="header__search-input" type = "text" placeholder="Search">
+                            <div class="search-item__block"> ${searchFormItem} </div>
                             <div class="header__search-categories">
                               All Categorise 
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
