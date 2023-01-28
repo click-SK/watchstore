@@ -62,7 +62,7 @@ class Header{
           `
           htmlSearchCategories +=`
           <li class="header__item-nav--categories-item">
-                <div class="item-link" onclick = "headerPage.categoriesData(event); categoriesPage.rangeSliderPrice();" data-f="${name}" >${name}</div>
+                <div class="item-link" onclick = "headerPage.categoriesData(event); categoriesPage.rangeSliderPrice(); categoriesPage.render(event.target.getAttribute('data-f'));" data-f="${name}" >${name}</div>
                 <div class="header__item-nav--categories-block">
                   <div class="categories-block--item">
                     <ul class="header__item-nav--categories-mod"> 
@@ -190,7 +190,8 @@ class Header{
     }
     categoriesData(event){
       let navData = event.target.getAttribute('data-f');
-      categoriesPage.render(navData);
+      // categoriesPage.render(navData);
+      
       ROOT_PRODUCTS.innerHTML = "";
       ROOT_GOODS.innerHTML = "";
       console.log(navData);
