@@ -189,7 +189,7 @@ class Header{
         
     }
     categoriesData(event){
-      let navData = event.target.getAttribute('data-f');
+      // let navData = event.target.getAttribute('data-f');
       categoriesPage.render(navData);
       
       // ROOT_PRODUCTS.innerHTML = "";
