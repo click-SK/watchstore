@@ -114,8 +114,9 @@ class Categories{
         CATALOG.forEach((el) =>{
             if (navData === el.categories ){
                 goodsArr.push(el);
-            }return goodsArr;            
+            }return goodsArr; ;           
         })
+
 
 
         
