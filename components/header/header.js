@@ -189,12 +189,12 @@ class Header{
         
     }
     categoriesData(event){
-      // let navData = event.target.getAttribute('data-f');
-      categoriesPage.render();
-      console.log(event)
+      let navData = event.target.getAttribute('data-f');
+      categoriesPage.render(navData);
       
-      // ROOT_PRODUCTS.innerHTML = "";
-      // ROOT_GOODS.innerHTML = "";
+      
+      ROOT_PRODUCTS.innerHTML = "";
+      ROOT_GOODS.innerHTML = "";
       // console.log(navData);
   }
     
