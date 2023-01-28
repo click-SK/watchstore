@@ -191,6 +191,7 @@ class Header{
     categoriesData(event){
       // let navData = event.target.getAttribute('data-f');
       categoriesPage.render();
+      console.log(event)
       
       // ROOT_PRODUCTS.innerHTML = "";
       // ROOT_GOODS.innerHTML = "";
