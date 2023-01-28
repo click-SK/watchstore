@@ -190,7 +190,7 @@ class Header{
     }
     categoriesData(event){
       let navData = event.target.getAttribute('data-f');
-      // categoriesPage.render(navData);
+      categoriesPage.render(navData);
       
       // ROOT_PRODUCTS.innerHTML = "";
       // ROOT_GOODS.innerHTML = "";
