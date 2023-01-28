@@ -121,7 +121,7 @@ header{
     border-top: 1px solid var(--color-unfocuse);
 
 }
-.item-img{
+.item-img--search{
     width: 55px;
     border-radius: 10px;
 

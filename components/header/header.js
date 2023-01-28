@@ -43,7 +43,7 @@ class Header{
 
           searchFormItem +=`
           <div class="search-form__item"> 
-            <img class="item-img" src="${el.img}" alt="">
+            <img class="item-img--search" src="${el.img}" alt="">
             <div class="item-name">${el.name}</div>
             <div class="item-price">${el.price}$</div>
           </div>
