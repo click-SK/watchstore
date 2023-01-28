@@ -194,7 +194,7 @@ class Header{
       
       // ROOT_PRODUCTS.innerHTML = "";
       // ROOT_GOODS.innerHTML = "";
-      console.log(navData);
+      // console.log(navData);
   }
     
 }
