@@ -42,7 +42,7 @@ class Header{
         CATALOG.forEach((el) =>{
 
           searchFormItem +=`
-          <div class="search-form__item"> 
+          <div class="search-form__item "> 
             <img class="item-img--search" src="${el.img}" alt="">
             <div class="item-name">${el.name}</div>
             <div class="item-price">${el.price}$</div>
@@ -62,7 +62,7 @@ class Header{
           `
           htmlSearchCategories +=`
           <li class="header__item-nav--categories-item">
-                <a href="#categories" onclick = "headerPage.categoriesData(event); categoriesPage.rangeSliderPrice();" data-f="${name}" >${name}</a>
+                <div class="item-link" onclick = "headerPage.categoriesData(event); categoriesPage.rangeSliderPrice();" data-f="${name}" >${name}</div>
                 <div class="header__item-nav--categories-block">
                   <div class="categories-block--item">
                     <ul class="header__item-nav--categories-mod"> 
@@ -133,7 +133,7 @@ class Header{
                         <div class="header__search-form">
                         <div class="break-search"> x </div>
                             <input class="header__search-input" type = "text" placeholder="Search">
-                            <div class="search-item__block"> ${searchFormItem} </div>
+                            <div id="hide" class="search-item__block "> ${searchFormItem} </div>
                             <div class="header__search-categories">
                               All Categorise 
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-down" viewBox="0 0 16 16">

@@ -1,8 +1,9 @@
 /* --------header-start------------- */
 
-.hide{
+#hide{
     display: none;
 }
+
 
 header{
     display: flex;
@@ -300,7 +301,7 @@ button{
     
 }
 
-.header__item-nav--categories-item a{
+.item-link{
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
@@ -315,6 +316,7 @@ button{
     
     color: var(--color-display-1);
     z-index: 101;
+    cursor: pointer;
 }
 
 /* .header__item-nav--categories-mod{
