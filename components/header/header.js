@@ -24,6 +24,27 @@ class Header{
 
     }
 
+    searchGoods(){
+      document.querySelector('.search-item__block').classList.remove("hidden")
+      let val = document.querySelector("#search-input").value.trim();
+      let searchItems = document.querySelectorAll(".search-item__block li");
+      if (val != '') {
+        searchItems.forEach(function(elem){
+          if (elem.innerHTML.search(val)== -1){
+            elem.classList.add("hidden")
+          }else{
+            elem.classList.remove("hidden")
+          }
+        });
+
+      }else {
+        searchItems.forEach(function(elem){
+          elem.classList.remove("hidden")
+        })
+      }
+
+    }
+
     render(count) {
 
       // 
@@ -42,11 +63,11 @@ class Header{
         CATALOG.forEach((el) =>{
 
           searchFormItem +=`
-          <div class="search-form__item "> 
+          <li id="search-item" data-g="${el.name}" class="search-form__item"> 
             <img class="item-img--search" src="${el.img}" alt="">
             <div class="item-name">${el.name}</div>
             <div class="item-price">${el.price}$</div>
-          </div>
+          </li>
           `
         });
 
@@ -129,11 +150,11 @@ class Header{
             
             <div class=" header-item header__top">
                 <div class="header__logo">GO-TIME</div>
+                <ul  class="search-item__block hidden "> ${searchFormItem} </ul>
                 <div class="header__search">
                         <div class="header__search-form">
-                        <div class="break-search"> x </div>
-                            <input class="header__search-input" type = "text" placeholder="Search">
-                            <div id="hide" class="search-item__block "> ${searchFormItem} </div>
+                        
+                            <input id="search-input" class="header__search-input" type = "text" placeholder="Search" onclick = "headerPage.searchGoods();">
                             <div class="header__search-categories">
                               All Categorise 
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
@@ -144,7 +165,7 @@ class Header{
                                 </ul>
                               </div>
                         </div>
-                        <button class="header__search-btn btn_primery btm-prime-blue"  >GO</button>
+                        <button class="header__search-btn btn_primery btm-prime-blue"   >GO</button>
                 </div>
                 <div class="header__acc-button">
                     <button class="header__btn_primery btn_primery">Log In</button>
