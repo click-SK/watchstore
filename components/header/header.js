@@ -193,6 +193,7 @@ class Header{
       categoriesPage.render(navData);
       ROOT_PRODUCTS.innerHTML = "";
       ROOT_GOODS.innerHTML = "";
+      console.log(navData);
   }
     
 }
