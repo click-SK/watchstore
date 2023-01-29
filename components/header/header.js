@@ -87,7 +87,7 @@ class Header{
           `
           htmlSearchCategories +=`
           <li class="header__item-nav--categories-item">
-                <a href="#categories-${name}" class="item-link" onclick = "headerPage.categoriesData(event); categoriesPage.rangeSliderPrice();" data-f="${name}" >${name}</a>
+                <div href="#categories-${name}" class="item-link" onclick = "headerPage.categoriesData(event); categoriesPage.rangeSliderPrice();" data-f="${name}" >${name}</div>
                 <div class="header__item-nav--categories-block">
                   <div class="categories-block--item">
                     <ul class="header__item-nav--categories-mod"> 
