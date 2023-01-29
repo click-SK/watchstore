@@ -32,8 +32,10 @@ class Header{
         searchItems.forEach(function(elem){
           if (elem.innerHTML.search(val)== -1){
             elem.classList.add("hidden")
+            document.querySelector(".non-result").classList.remove("hidden")
           }else{
             elem.classList.remove("hidden")
+            document.querySelector(".non-result").classList.add("hidden")
           }
         });
 
@@ -158,7 +160,10 @@ class Header{
                 <div class="header__search-form">
                 
                 <input id="search-input" class="header__search-input" type = "text" placeholder="Search" oninput = "headerPage.searchGoods();">
-                <ul  class="search-item__block hidden "> ${searchFormItem} </ul>
+                <ul  class="search-item__block hidden "> 
+                    ${searchFormItem} 
+                    <p class="non-result hidden"> non-result <\p>
+                </ul>
                             <div class="header__search-categories hidden">
                               All Categorise 
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
