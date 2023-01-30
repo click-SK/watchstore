@@ -113,3 +113,7 @@ input[type=number] {
 .filter-price__inputs{
     margin: 16px 0 16px 0;
 }
+
+.hidden{
+    display: none;
+}
