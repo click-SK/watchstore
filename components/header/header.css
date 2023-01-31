@@ -114,6 +114,11 @@ header{
     overflow: hidden;
 }
 
+.non-result{
+    display: flex;
+    color: #BB0D1E;
+    z-index: 103;
+}
 
 .search-form__item{
     display: flex;

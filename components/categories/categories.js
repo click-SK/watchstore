@@ -33,18 +33,18 @@ class Categories{
     }
  
 
-    testFilter(){
-        let navData = 'Smart Watch';
-        let goodsArr = [];
+    // testFilter(){
+    //     let navData = 'Smart Watch';
+    //     let goodsArr = [];
 
-        CATALOG.forEach((el) =>{
-            if (navData === el.categories ){
-                goodsArr.push(el);
-            } return goodsArr;
-        })
-        console.log(goodsArr);
+    //     CATALOG.forEach((el) =>{
+    //         if (navData === el.categories ){
+    //             goodsArr.push(el);
+    //         } return goodsArr;
+    //     })
+    //     console.log(goodsArr);
         
-    }
+    // }
 
     rangeSliderPrice(valueFilterRange){
         let rangeSlider = document.getElementById('range-slider');
@@ -95,7 +95,20 @@ class Categories{
 
     testFilterValue(){
         let valueFilterRange = JSON.parse(localStorage.getItem("filterRangeValueStorage"));
-        console.log(valueFilterRange);
+        let minPrice = valueFilterRange[0];
+        let maxPrice = valueFilterRange[1];
+        let itemGoodsPrice = document.querySelectorAll(".main-section__item_prise");
+        let itemGoods = document.querySelectorAll(".goods-block__item"); 
+
+        itemGoodsPrice.forEach((price)=>{
+            if (price.id < minPrice || price.id > maxPrice){
+                document.querySelector(".goods-block__item").classList.add("hidden")
+            } else
+            document.querySelector(".goods-block__item").classList.remove("hidden")
+        })
+
+
+
 
     }
     
@@ -146,11 +159,11 @@ class Categories{
             }
 
             htmlCatalog += `
-            <a id="${el.id}" class="main-section__item goods-block__item" >
+            <a id="${el.id}" class="main-section__item goods-block__item " >
                 <img  class="main-section__item_img" src="${el.img}" alt="${el.altImg}" onclick = "productsPage.handleRenderGoods(${el.id}); productsPage.onClickScroll();"  >
                 <h2 class="main-section__item_title" onclick = "productsPage.handleRenderGoods(${el.id});">${el.name}</h2>
                 <div class="main-section__item_prise-butt">
-                    <div class="main-section__item_prise" onclick = "productsPage.handleRenderGoods(${el.id});">${el.price}$</div>
+                    <div id="${el.price}" class="main-section__item_prise" onclick = "productsPage.handleRenderGoods(${el.id});">${el.price}$</div>
                     <button class="main-section__item_btn btn_primery ${activeClass}" 
                     onclick = "productsPage.handleSetLocationStorage(this, '${el.id}','${el.counter}','${el.name}');">  
                         ${activeText}
